@@ -1,0 +1,74 @@
+body {
+    background: rgb(17, 0, 15);     
+    color: #fff;                    
+}
+.hide {
+    display: none !important; 
+}
+.info__nickname {
+    color: rgb(92, 255, 17);        
+}
+.container {
+    width: 700px;
+    margin: auto;                     /*margin - свойство, которое определяет внешний отступ на всех четырёх сторонах элемента*/
+    background: #303;             
+    border-style: groove;             /*border-style - стиль границы*/
+    border-width: 5px;                /*border-width - ширина границы*/
+    border-color: rgb(92, 255, 17); /*border-color - цвет границы*/
+    border-radius: 40px;              /*border-radius - свойство, позволяющее определять, как скругляются границы рамки*/
+    padding: 20px 30px;               /*padding - свойство, которое устанавливает внутренние отступы(поля) со всех сторон элемента*/
+}
+.header {
+    display: flex;                    /*display: flex - внутренние div-ы выстраиваются в ряд 
+    (вдоль главной оси) колонками одинаковой высоты, независимо от содержимого*/
+    align-items: center;              /*align-items - выравнивает 
+    flex-элементы текущей flex-линии перпендикулярно главной оси оси flex контейнера, или вдоль строчной оси grid контейнера.*/
+    justify-content: space-between;   /*justify-content определяет, как браузер распределяет 
+    пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.*/
+    color: #fff;                    /*color - цвет заголовка*/
+}
+.header__logo {
+    font-size: 30px;                  /*Свойство margin определяет внешний отступ на всех четырёх сторонах элемента*/
+    font-weight: 400;                 /*font-weight - начертание шрифта*/
+    text-transform: uppercase;        /*text-transform - свойство, которое может менять регистр текста (прописные, строчные буквы)*/
+    letter-spacing: 16px;             /*letter-spacing - определяет межбуквенное расстояние в тексте*/
+    color: #fff;                    /*color - цвет надписи "Визитная карточка"*/
+}
+.header__menu {
+    position: relative;               /*position - свойство, позволяющее установить или изменить положение элемента*/
+}
+.header__menu .menu__btn {
+    background: transparent;          /*background - фон кнопок*/
+    color: #fff;                    /*color - цвет меню*/
+    cursor: pointer;                  /*cursor - свойство, определяющее тип курсора при наведении мышки на элемент*/
+}
+.header__menu .menu__btn svg {
+    width: 25px;                      /*width - ширина элемента*/
+    height: 25px;                     /*height - высота элемента*/
+}
+.header__menu .menu__list {
+    margin: 0;                        /*margin - свойство, которое определяет внешний отступ на всех четырёх сторонах элемента*/
+    padding: 10px 20px;               /*padding - свойство, которое устанавливает внутренние отступы(поля) со всех сторон элемента*/
+    list-style-type: none;            /*задаёт тип маркеров для использования в списке (круглые маркеры, цифры, буквы)*/
+    border-radius: 4px;               /*border-radius - свойство, позволяющее определять, как скругляются границы рамки*/
+    background: #e2e2e2;            /*background - фон кнопки "Открыть портфолио"*/
+    position: absolute;               
+    bottom: 0;                        
+    right: 0;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: menu-showing .3s;
+}
+.header__menu .menu__link {
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
+    text-decoration: none;
+}
+@keyframes menu-showing {
+from {
+transform: translateY(95%);
+}
+}
