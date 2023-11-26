@@ -80,7 +80,7 @@ h1 {
 }
 
 .completed {
-  color: #050005;
+  color: #fff;
   text-decoration: line-through;
   cursor: pointer;
 }

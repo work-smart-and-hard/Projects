@@ -1,0 +1,33 @@
+INSERT INTO student (id, name, free_time_hours) VALUES (1, 'Майорова Софья Сергеевна', 3);
+INSERT INTO student (id, name, free_time_hours) VALUES (2, 'Никифорова Екатерина Вячеславовна', 2);
+INSERT INTO student (id, name, free_time_hours) VALUES (3, 'Корепанов Артём Качалкович', 2);
+INSERT INTO student (id, name, free_time_hours) VALUES (4, 'Логисимонов Сергей Дмитриевич', 7);
+INSERT INTO student (id, name, free_time_hours) VALUES (5, 'Никитин Андрей The GOAT', 3);
+INSERT INTO student (id, name, free_time_hours) VALUES (6, 'Баринов Константин Гиганямович', 2);
+
+INSERT INTO hobby (id, name, category) VALUES (1, 'Рисование','Творчество');
+INSERT INTO hobby (id, name, category) VALUES (2, 'Разработка игр','Творчество');
+INSERT INTO hobby (id, name, category) VALUES (3, 'Футбол','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (4, 'Тренажерный зал','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (5, 'Баскетбол','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (6, 'Лёгкая атлетика','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (7, 'Велоспорт','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (8, 'Волейбол','Спорт');
+INSERT INTO hobby (id, name, category) VALUES (9, 'Маджонг','Игры');
+INSERT INTO hobby (id, name, category) VALUES (10, 'Тетрис','Игры');
+INSERT INTO hobby (id, name, category) VALUES (11, 'Фотографирование','Творчество');
+INSERT INTO hobby (id, name, category) VALUES (12, '3д моделирование','Творчество');
+
+INSERT INTO info VALUES (1,  11, 72);
+INSERT INTO info VALUES (1,  12, 26);
+INSERT INTO info VALUES (2,  4, 2);
+INSERT INTO info VALUES (3, 3, 132);
+INSERT INTO info VALUES (4, 1, 120);
+INSERT INTO info VALUES (4, 2, 96);
+INSERT INTO info VALUES (5, 7, 132);
+INSERT INTO info VALUES (5, 4, 10);
+INSERT INTO info VALUES (6, 3, 36);
+INSERT INTO info VALUES (6, 4, 2);
+INSERT INTO info VALUES (6, 5, 48);
+INSERT INTO info VALUES (6, 6, 84);
+INSERT INTO info VALUES (6, 10, 3);

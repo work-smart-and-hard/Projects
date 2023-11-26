@@ -1,0 +1,13 @@
+/*
+
+SELECT * FROM info;
+
+SELECT name FROM student;
+
+SELECT * FROM hobby
+WHERE category = "Спорт";
+
+*/
+
+SELECT * FROM hobby
+WHERE category = "Спорт";
