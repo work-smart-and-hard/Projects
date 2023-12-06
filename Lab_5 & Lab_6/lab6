@@ -1,0 +1,15 @@
+/*
+SELECT category, COUNT(*) AS all_hobbies FROM hobby 
+GROUP BY category
+ORDER BY all_hobbies DESC
+*/
+/*
+SELECT student_id, COUNT(*) AS hobbies FROM info
+GROUP BY student_id
+ORDER BY hobbies ASC
+*/
+/*
+SELECT student_id, SUM(for_how_many_months) AS months_for_all_hobbies FROM info
+GROUP BY student_id
+ORDER BY months_for_all_hobbies ASC
+*/

@@ -10,4 +10,4 @@ WHERE category = "Спорт";
 */
 
 SELECT * FROM hobby
-WHERE category = "Спорт";
+WHERE category = "Творчество";
