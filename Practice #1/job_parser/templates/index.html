@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <title>Job Parser</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-        <div class="container">
-            <h1 class="mt-5">Найди вакансию, подходящую для тебя!</h1>
-            <form method="post" action="{{ url_for('search') }}">
-                <div class="form-group">    
-                    <input type="text" class="form-control" id="search" name="search" placeholder="Введите ключевые слова">
-                </div>
-                    <button type="submit" class="btn btn-primary">Поиск</button>
-            </form>
+        <div class="container center-content">
+            <div class="search-form text-center">
+                <h1>Найди вакансию, подходящую для тебя!</h1>
+                <form method="post" action="{{ url_for('search') }}" class="mt-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control search-input" id="search" name="search" placeholder="Введите название вакансии, компании или другие ключевые слова">
+                    </div>
+                        <button type="submit" class="btn btn-primary">Поиск</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>
