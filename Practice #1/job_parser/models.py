@@ -1,6 +1,8 @@
 import requests
 from config import Config
 from db import connect_to_the_database
+import psycopg2
+from psycopg2 import sql
 
 # получение вакансий
 def get_vacancies(): 
@@ -46,14 +48,14 @@ def get_vacancies_with_filters(filters):
         connection_ = connect_to_the_database()
         cursor_ = connection_.cursor() # создание курсора
         # Построение запроса с фильтрацией
-        query = f'SELECT * FROM vacancies'
+        query = sql.SQL('SELECT * FROM vacancies')
         conditions, values = [], []
         if filters:
             for column, value in filters.items():
-                conditions.append(f'{column} LIKE %s')
+                conditions.append(sql.SQL('{} ILIKE %s').format(sql.Identifier(column)))
                 values.append(f'%{value}%')
             if conditions:
-                query += ' WHERE ' + ' AND '.join(conditions)
+                query = query + sql.SQL(' WHERE ') + sql.SQL(' AND ').join(conditions)
         cursor_.execute(query, values) # выполнение запроса
         results = cursor_.fetchall() # получение результатов
         cursor_.close()

@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Job Parser</title>
-</head>
-<body>
-    <h1>Job Parser</h1>
-    <a href="{{ url_for('fetch_vacancies') }}">Fetch Vacancies</a>
-    <h2>Search Vacancies</h2>
-    <form method="post" action="{{ url_for('search') }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <label for="employer">Employer:</label>
-        <input type="text" id="employer" name="employer">
-        <label for="snippet">Snippet:</label>
-        <input type="text" id="snippet" name="snippet">
-        <label for="schedule">Schedule:</label>
-        <input type="text" id="schedule" name="schedule">
-        <button type="submit">Search</button>
-    </form>
-    <h2>Vacancies</h2>
-    <ul>
-        {% for vacancy in vacancies %}
-        <li>
-            <a href="{{ vacancy[2] }}">{{ vacancy[1] }}</a> - {{ vacancy[3] }} - {{ vacancy[4] }} - {{ vacancy[5] }} - {{ vacancy[6] }} - {{ vacancy[7] }} - {{ vacancy[8] }}
-        </li>
-        {% endfor %}
-    </ul>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Job Parser</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="mt-5">Найди вакансию, подходящую для тебя!</h1>
+            <form method="post" action="{{ url_for('search') }}">
+                <div class="form-group">    
+                    <input type="text" class="form-control" id="search" name="search" placeholder="Введите ключевые слова">
+                </div>
+                    <button type="submit" class="btn btn-primary">Поиск</button>
+            </form>
+        </div>
+    </body>
 </html>
