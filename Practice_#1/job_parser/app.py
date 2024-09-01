@@ -1,13 +1,25 @@
 from flask import Flask, request, render_template, redirect, url_for
 from models import get_vacancies, save_vacancies_to_the_database, get_vacancies_with_filters
-from db import __init__database
+from db import connect_to_the_database, __init__database
+import logging
 
 app = Flask(__name__)
 __init__database()
 
+logging.basicConfig(level=logging.DEBUG)
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    connection_ = connect_to_the_database()
+    if connection_:
+        cursor_ = connection_.cursor()
+        cursor_.execute("SELECT * FROM vacancies")
+        vacancies = cursor_.fetchall()
+        cursor_.close()
+        connection_.close()
+        return render_template('index.html', vacancies=vacancies)
+    else:
+        return "Ошибка подключения к базе данных:", 500
 
 @app.route('/fetch_vacancies')
 def fetch_vacancies():
@@ -29,4 +41,4 @@ def search():
     return render_template('results.html', vacancies=[], filters=filters)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
