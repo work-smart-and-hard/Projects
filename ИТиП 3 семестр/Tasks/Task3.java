@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Task3 {
     public static void main(String[] args) {
         System.out.println("Решение задания 1");
@@ -9,9 +7,9 @@ public class Task3 {
         System.out.println("Для строк '' и '' результат: " + isStrangePair("", "") + ";");
         System.out.println();
         System.out.println("Решение задания 2");
-        String[][] sale = {{"Laptop", "124200"}, {"Phone", "51450"}, {"Headphones", "13800"}};
-        System.out.println("Для данных ([[Laptop, 124200], [Phone, 51450], [Headphones, 13800]], 25) результат: " 
-        + discountedGoods(sale));
+        Object[][] sale = {{"Laptop", 124200}, {"Phone", 51450}, {"Headphones", 13800}};
+        System.out.println("Для данных ([['Laptop', 124200], ['Phone', 51450], ['Headphones', 13800]], 25) результат: " 
+        + listIntoString(discountedGoods(sale, 25)));
         System.out.println();
         System.out.println("Решение задания 3");
         System.out.println("Для данных (0, 0, 5, 2, 2) результат: " + successShot(0, 0, 5, 2, 2) + ";");
@@ -35,7 +33,7 @@ public class Task3 {
         System.out.println("Для числа 4 результатом является: " + bugger(4) + ";");
         System.out.println();
         System.out.println("Решение задания 7");
-        String[][] goods = {{"Скакалка", "550", "8"}, {"Шлем", "3750", "4"}, {"Мяч", "2900", "10"}};
+        Object[][] goods = {{"Скакалка", 550, 8}, {"Шлем", 3750, 4}, {"Мяч", 2900, 10}};
         System.out.println(mostExpensive(goods));
         System.out.println();
         System.out.println("Решение задания 8");
@@ -68,20 +66,30 @@ public class Task3 {
         return false;
     }
     /* Метод для задания 2 */
-    public static ArrayList<ArrayList<String>> discountedGoods(String[][] goods) {
-        ArrayList<ArrayList<String>> new_goods = new ArrayList<>();
-        double discount = 25.0;
-        double percent_discount = discount / 100;
+    public static Object[][] discountedGoods(Object[][] goods, int discount) {
+        Object[][] new_goods = new Object[goods.length][2];
+        double percent_discount = discount / 100.0;
         for (int i = 0; i < goods.length; i++) {
-            ArrayList<String> current_good = new ArrayList<>();
-            String name = goods[i][0];
-            String price = goods[i][1];
-            int price_with_discount = (int) Math.ceil(Double.parseDouble(price) * (1.0 - percent_discount));
-            current_good.add(name);
-            current_good.add(String.valueOf(price_with_discount));
-            new_goods.add(current_good);
+            String name = (String) goods[i][0];
+            int price = (int) goods[i][1];
+            int price_with_discount = (int) Math.max(Math.round(price * (1 - percent_discount)), 1);
+            new_goods[i][0] = name;
+            new_goods[i][1] = price_with_discount;
         }
         return new_goods;
+    }
+    public static String listIntoString(Object[][] result) {
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for (int i = 0; i < result.length; i++) {
+            Object[] good_feature = result[i];
+            s.append("[" + "'" + good_feature[0] + "'" + ", " + good_feature[1] + "]");
+            if (i < result.length - 1) {
+                s.append(", ");
+            }
+        }
+        s.append("]");
+        return s.toString();
     }
     /* Метод для задания 3 */
     public static boolean successShot(int x, int y, int r, int m, int n) {
@@ -152,17 +160,16 @@ public class Task3 {
         return counter;
     }
     /* Метод для задания 7 */
-    public static String mostExpensive(String[][] goods_list) {
+    public static String mostExpensive(Object[][] invertory) {
         int max_price = 0;
         String max_price_name = "";
-        for (int i = 0; i < goods_list.length; i++) {
-            String current_name = goods_list[i][0];
-            String current_price = goods_list[i][1];
-            String current_quantity = goods_list[i][2];
-            int price = Integer.parseInt(current_price);
-            int quantity = Integer.parseInt(current_quantity);
+        for (int i = 0; i < invertory.length; i++) {
+            Object[] current_invertory = invertory[i];
+            String name = (String) current_invertory[0];
+            int price = (int) current_invertory[1];
+            int quantity = (int) current_invertory[2];
             if (max_price < price * quantity) {
-                max_price_name = current_name;
+                max_price_name = name;
                 max_price = price * quantity;
             }
         }
